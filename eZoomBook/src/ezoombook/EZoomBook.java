@@ -5,6 +5,8 @@
  */
 package ezoombook;
 
+import static ezoombook.Utilitaire.DemandeInt;
+import static ezoombook.Utilitaire.DemandeString;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
