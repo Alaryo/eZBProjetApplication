@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class Utilitaire {
     
-    public static int Demande() {
+    public static int DemandeInt() {
         int i;
         Scanner saisieUtilisateur = new Scanner(System.in);
 
@@ -23,14 +23,32 @@ public class Utilitaire {
 
         } catch (InputMismatchException e) {
             System.out.println("entrez un nombre!");
-            i = Demande();
+            i = DemandeInt();
         }
         
         if (i<0){
-        System.out.println("case hors champ,entrez un autre nombre");
-            i = Demande();
+        System.out.println("entrez un nombre positif");
+            i = DemandeInt();
     }
         return i;
     }
     
+    public static String DemandeString(){
+        String txt;
+        Scanner saisieUtilisateur = new Scanner(System.in);
+
+        try {
+            txt = saisieUtilisateur.next();
+
+        } catch (InputMismatchException e) {
+            System.out.println("entrez un nombre!");
+            i = DemandeInt();
+        }
+        
+        if (i<0){
+        System.out.println("entrez un nombre positif");
+            i = DemandeInt();
+    }
+        return i;
+    } 
 }
