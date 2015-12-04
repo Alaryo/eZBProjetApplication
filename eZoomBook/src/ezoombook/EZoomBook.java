@@ -21,16 +21,18 @@ public class EZoomBook {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(new File("tonfichier.xhtml")));
-// normalement si le fichier n'existe pas, il est crée à la racine du projet
-            writer.write();
- 
-writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        //permet de créer un fichier avec "a" dedans
         
+        /*try {
+         BufferedWriter writer = new BufferedWriter(new FileWriter(new File("tonfichier.xhtml")));
+         // normalement si le fichier n'existe pas, il est crée à la racine du projet
+         writer.write("a");
+ 
+         writer.close();
+         } catch (IOException e) {
+         e.printStackTrace();
+         }
+        
+         }*/
     }
-    
-}
