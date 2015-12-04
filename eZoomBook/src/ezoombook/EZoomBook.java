@@ -25,15 +25,25 @@ public class EZoomBook {
         //permet de créer un fichier avec "a" dedans
         
         try {
-         BufferedWriter writer = new BufferedWriter(new FileWriter(new File("tonfichier.xhtml")));
-          //normalement si le fichier n'existe pas, il est crée à la racine du projet
-         writer.write("a");
- 
-         writer.close();
-         } catch (IOException e) {
-         e.printStackTrace();
-         }
-        
-         }
+            BufferedWriter writer = new BufferedWriter(new FileWriter(new File("tonfichier.xhtml")));
+             //normalement si le fichier n'existe pas, il est crée à la racine du projet
+            writer.write("a");
+            System.out.println("\n----------- CREATION DE LA PAGE DE GARDE -----------------");
+            System.out.println("\n\nVeuillez rentrer le titre de votre eZoomBook\n");
+            String titre = DemandeString();
+            System.out.println("\n\nVeuillez donner un texte d'introduction\n");
+            String intro = DemandeString();
+            System.out.println("\n\nVeuillez donner un texte explicatif : comment utiliser un eZoomBook\n");
+            String util = DemandeString();
+            System.out.println("\n\nVeuillez rentrer le nombre de layers\n");
+            int nbLayers = DemandeInt();
+            
+            
+
+            writer.close();
+            } catch (IOException e) {
+            e.printStackTrace();
+            }
+        }
     }
 
