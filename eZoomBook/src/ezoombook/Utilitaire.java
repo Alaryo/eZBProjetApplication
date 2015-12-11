@@ -41,14 +41,9 @@ public class Utilitaire {
         boolean saisieOk = false;
         Scanner saisieUtilisateur = new Scanner(System.in);
 
-        while (saisieOk = false) {
+        while (saisieOk == false) {
             txt = saisieUtilisateur.next();
             System.out.println(txt);
-            try {
-                System.in.read();
-            } catch (IOException ex) {
-                Logger.getLogger(Utilitaire.class.getName()).log(Level.SEVERE, null, ex);
-            }
             System.out.println("Est-ce que ce texte vous convient ? Si oui tapez 1.");
             if (saisieUtilisateur.next().equals("1")){
                 saisieOk = true;
