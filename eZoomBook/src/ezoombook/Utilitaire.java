@@ -13,42 +13,28 @@ import java.util.Scanner;
  * @author pierre
  */
 public class Utilitaire {
-    
+
     public static int DemandeInt() {
-        int i;
+        int i = 0;
+        boolean b = false;
         Scanner saisieUtilisateur = new Scanner(System.in);
 
-        try {
-            i = saisieUtilisateur.nextInt();
+        while (!b) {
+            try {
+                i = saisieUtilisateur.nextInt();
+                b = true;
 
-        } catch (InputMismatchException e) {
-            System.out.println("entrez un nombre!");
-            i = DemandeInt();
+                if (i < 0) {
+                    System.out.println("entrez un nombre positif");
+                    b = false;
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("entrez un nombre!");
+            }
         }
-        
-        if (i<0){
-        System.out.println("entrez un nombre positif");
-            i = DemandeInt();
-    }
+
         return i;
     }
-    
-    public static String DemandeString(){
-        String txt;
-        Scanner saisieUtilisateur = new Scanner(System.in);
 
-        try {
-            txt = saisieUtilisateur.next();
-
-        } catch (InputMismatchException e) {
-            System.out.println("entrez un nombre!");
-            i = DemandeInt();
-        }
-        
-        if (i<0){
-        System.out.println("entrez un nombre positif");
-            i = DemandeInt();
-    }
-        return i;
-    } 
 }
