@@ -26,11 +26,13 @@ public class Utilitaire {
 
                 if (i < 0) {
                     System.out.println("entrez un nombre positif");
+                    i = saisieUtilisateur.nextInt();
                     b = false;
                 }
 
             } catch (InputMismatchException e) {
-                System.out.println("entrez un nombre!");
+                System.out.println("entrez un nombre correct!");
+                String garbage = saisieUtilisateur.next();
             }
         }
 
