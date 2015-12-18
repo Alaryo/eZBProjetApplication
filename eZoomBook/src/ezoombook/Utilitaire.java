@@ -33,7 +33,7 @@ public class Utilitaire {
 
             } catch (InputMismatchException e) {
                 System.out.println("entrez un nombre correct!");
-                String garbage = saisieUtilisateur.next();
+                String garbage = saisieUtilisateur.nextLine();
             }
         }
 
@@ -46,14 +46,15 @@ public class Utilitaire {
         Scanner saisieUtilisateur = new Scanner(System.in);
 
         while (saisieOk == false) {
-            txt = saisieUtilisateur.next();
-            System.out.println(txt);
+            txt = saisieUtilisateur.nextLine();
+            /*System.out.println(txt);
             System.out.println("Est-ce que ce texte vous convient ? Si oui tapez 1.");
             if (saisieUtilisateur.next().equals("1")){
                 saisieOk = true;
             } else {
                 System.out.println("Entrez votre nouveau texte");
-            }
+            }*/
+            saisieOk = true;
         }
         return txt;
     }

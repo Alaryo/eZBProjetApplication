@@ -27,9 +27,8 @@ public class EZoomBook {
         //permet de créer un fichier avec "a" dedans
         
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(new File("tonfichier.xhtml")));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(new File("intro.xhtml")));
 //             normalement si le fichier n'existe pas, il est crée à la racine du projet
-            writer.write("a");
             System.out.println("\n----------- CREATION DE LA PAGE DE GARDE -----------------");
             
             
@@ -41,7 +40,7 @@ public class EZoomBook {
             ArrayList<String> nomLayers= new ArrayList<>();
             for (int k=1; k<=nbLayers; k++){
                 System.out.println("\n\nVeuillez rentrer le nom du layer numéro "+ k);
-                nomLayers.set(k, DemandeString());
+                nomLayers.add(DemandeString());
             }
             
             System.out.println("\n\nVeuillez rentrer le nombre de chapitre\n");
@@ -51,16 +50,26 @@ public class EZoomBook {
             ArrayList<String> nomChapitres= new ArrayList<>();
             for (int k=1; k<=nbChapitres; k++){
                 System.out.println("\n\nVeuillez rentrer le nom du chapitre numéro "+ k);
-                nomChapitres.set(k, DemandeString());
+                nomChapitres.add(DemandeString());
             }
             
             Page[][] pages = new Page[nbLayers][nbChapitres];
-            for (int i=1; i<= nbLayers ; i++){
-                for (int k =1; k<=nbChapitres; k++){
+            for (int i=0; i<= nbLayers-1 ; i++){
+                for (int k =0; k <= nbChapitres-1; k++){
                     pages[i][k]= new Page();
+                    BufferedWriter writer1 = new BufferedWriter(new FileWriter(new File(nomChapitres.get(k)+ "_" + nomLayers.get(i) +".xhtml")));
+                    pages[i][k].pageVierge(nomChapitres,nomLayers, k , i );
+                    writer1.write(pages[i][k].getTexte());
+                    writer1.close();
                 }
             }
+            
+            
+            Page intro = new Page();
+            intro.creerIntro(nomLayers, nomChapitres);
+            writer.write(intro.getTexte());
             writer.close();
+            //System.out.println(pages[1][2].getTexte());
         } catch (IOException e) {
             e.printStackTrace();
         }
