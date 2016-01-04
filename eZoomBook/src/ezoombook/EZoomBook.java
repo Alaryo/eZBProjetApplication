@@ -5,12 +5,12 @@
  */
 package ezoombook;
 
-import static ezoombook.Utilitaire.DemandeInt;
-import static ezoombook.Utilitaire.DemandeString;
+import static ezoombook.Utilitaire.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -27,25 +27,52 @@ public class EZoomBook {
         //permet de créer un fichier avec "a" dedans
         
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(new File("tonfichier.xhtml")));
-             //normalement si le fichier n'existe pas, il est crée à la racine du projet
-            
+            BufferedWriter writer = new BufferedWriter(new FileWriter(new File("intro.xhtml")));
+//             normalement si le fichier n'existe pas, il est crée à la racine du projet
             System.out.println("\n----------- CREATION DE LA PAGE DE GARDE -----------------");
-            System.out.println("\n\nVeuillez rentrer le titre de votre eZoomBook\n");
-            String titre = DemandeString();
-            System.out.println("\n\nVeuillez donner un texte d'introduction\n");
-            String intro = DemandeString();
-            System.out.println("\n\nVeuillez donner un texte explicatif : comment utiliser un eZoomBook\n");
-            String util = DemandeString();
+            
+            
+            
             System.out.println("\n\nVeuillez rentrer le nombre de layers\n");
             int nbLayers = DemandeInt();
             
-            writer.write("a");
-
-            writer.close();
-            } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("\n\nOn va maintenant nommer les layers\n");
+            ArrayList<String> nomLayers= new ArrayList<>();
+            for (int k=1; k<=nbLayers; k++){
+                System.out.println("\n\nVeuillez rentrer le nom du layer numéro "+ k);
+                nomLayers.add(DemandeString());
             }
+            
+            System.out.println("\n\nVeuillez rentrer le nombre de chapitre\n");
+            int nbChapitres = DemandeInt();
+            
+            System.out.println("\n\nOn va maintenant nommer les chapitres\n");
+            ArrayList<String> nomChapitres= new ArrayList<>();
+            for (int k=1; k<=nbChapitres; k++){
+                System.out.println("\n\nVeuillez rentrer le nom du chapitre numéro "+ k);
+                nomChapitres.add(DemandeString());
+            }
+            
+            Page[][] pages = new Page[nbLayers][nbChapitres];
+            for (int i=0; i<= nbLayers-1 ; i++){
+                for (int k =0; k <= nbChapitres-1; k++){
+                    pages[i][k]= new Page();
+                    BufferedWriter writer1 = new BufferedWriter(new FileWriter(new File(nomChapitres.get(k)+ "_" + nomLayers.get(i) +".xhtml")));
+                    pages[i][k].pageVierge(nomChapitres,nomLayers, k , i );
+                    writer1.write(pages[i][k].getTexte());
+                    writer1.close();
+                }
+            }
+            
+            
+            Page intro = new Page();
+            intro.creerIntro(nomLayers, nomChapitres);
+            writer.write(intro.getTexte());
+            writer.close();
+            //System.out.println(pages[1][2].getTexte());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
+}
 
