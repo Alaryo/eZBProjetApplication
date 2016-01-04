@@ -29,7 +29,7 @@ public class EZoomBook {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(new File("tonfichier.xhtml")));
              //normalement si le fichier n'existe pas, il est crée à la racine du projet
-            writer.write("a");
+            
             System.out.println("\n----------- CREATION DE LA PAGE DE GARDE -----------------");
             System.out.println("\n\nVeuillez rentrer le titre de votre eZoomBook\n");
             String titre = DemandeString();
@@ -40,7 +40,7 @@ public class EZoomBook {
             System.out.println("\n\nVeuillez rentrer le nombre de layers\n");
             int nbLayers = DemandeInt();
             
-            
+            writer.write("a");
 
             writer.close();
             } catch (IOException e) {
