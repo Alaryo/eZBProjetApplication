@@ -141,27 +141,28 @@ public class Page {
                 + "<body>\n"
                 + "  <p><a id=\"s1\"></a></p>\n"
                 + "\n"
+                +"<td id=\"td\"><a href=\"../eZoomBook/intro.xhtml#n1\">Retour à l'introduction</a></td>"
                 + "  <center>\n"
                 + "    <table id=\"table\">\n"
                 + "<tr id=\"tr\">" ;
         if (j == 0) {
-            this.texte += "        <td id=\"td\">Niveau</td>\n"
+            this.texte += "        <td id=\"td\">Niveau </td>\n"
                     + "\n"
                     + "        <td colspan=\""
                     + (nomLayers.size() - 1)
-                    + "\">Aller au niveau</td>\n"
+                    + "\">Aller au niveau   </td>\n"
                     + "      </tr>\n";
         } else if (j == nomLayers.size() - 1) {
             this.texte += "        <td colspan=\""
                     + (nomLayers.size() - 1)
                     + "\">Aller au niveau</td>\n"
-                    + "        <td id=\"td\">Niveau</td>\n"
+                    + "        <td id=\"td\">Niveau </td>\n"
                     + "      </tr>\n";
         } else {
             this.texte += "        <td colspan=\""
                     + (j)
                     + "\">Aller au niveau</td>\n"
-                    + "        <td id=\"td\">Niveau</td>\n"
+                    + "        <td id=\"td\">Niveau </td>\n"
                     + "\n"
                     + "        <td colspan=\""
                     + (nomLayers.size() - j - 1)
@@ -179,7 +180,7 @@ public class Page {
                         + "</td>\n";
             } else {
                 this.texte += "\n"
-                        + "        <td id=\"td\"><a href=\"../eZoomBook/" + nomChapitres.get(i) + "_" + nomLayers.get(l) + ".xhtml#n1\">"
+                        + "<td id=\"td\"><a href=\"../eZoomBook/" + nomChapitres.get(i) + "_" + nomLayers.get(l) + ".xhtml#n1\">"
                         + nomLayers.get(l)
                         + "</a></td>\n";
             }
@@ -187,36 +188,23 @@ public class Page {
         }
         this.texte += "      </tr>\n"
                 + "    </table>\n"
-                + "  </center>\n"
-                + "\n"
+                + "  </center>\n";
+                
+                if (i>0){
+            this.texte += "<td id=\"td\"><a href=\"../eZoomBook/" + nomChapitres.get(i-1) + "_" + nomLayers.get(j) + ".xhtml#n1\">&lt;&lt;Chapitre précédent</a></td>";
+        }
+                this.texte += "\n"
                 + "  <h1 id=\"sigil_toc_id_3\">Synthèse</h1>\n"
                 + "\n"
                 + "  <h2 id=\"sigil_toc_id_4\">TITRE 1</h2>\n"
                 + "\n"
                 + "  <h3 class=\"sigil_not_in_toc\">SOUS TITRE</h3>\n"
                 + "\n"
-                + "  <p>ENTRER LE COURS&nbsp;</p>\n"
-                + "\n"
-                + "  <center>\n"
-                + "    <table id=\"table\">\n"
-                + "      <tr id=\"tr\">\n"
-                + "        <td id=\"td\">Retourner à</td>\n"
-                + "\n"
-                + "        <td id=\"td\">Niveau</td>\n"
-                + "\n"
-                + "        <td id=\"td\">Aller au niveau</td>\n"
-                + "      </tr>\n"
-                + "\n"
-                + "      <tr id=\"tr\">\n"
-                + "        <td id=\"td\"><a href=\"../notions1.xhtml#n1\">Notions</a></td>\n"
-                + "\n"
-                + "        <td id=\"td\">Synthèse</td>\n"
-                + "\n"
-                + "        <td id=\"td\"><a href=\"../approfondi1.xhtml#a1\">Approfondi</a></td>\n"
-                + "      </tr>\n"
-                + "    </table>\n"
-                + "  </center>\n"
-                + "</body>\n"
+                + "  <p>ENTRER LE COURS&nbsp;</p>\n";
+        if (i<nomChapitres.size()-1){
+            this.texte += "<td id=\"td\"><a href=\"../eZoomBook/" + nomChapitres.get(i+1) + "_" + nomLayers.get(j) + ".xhtml#n1\">&gt;&gt;Chapitre suivant</a></td>";
+        }
+        this.texte += "</body>\n"
                 + "</html>";
     }
 }
