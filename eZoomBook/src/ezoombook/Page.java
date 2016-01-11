@@ -47,7 +47,7 @@ public class Page {
     public Page() {
         this.titreChapitre = "Sans Titre";
         this.layer = "Sans Layer";
-        this.texte = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+        this.texte = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n"
                 + "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
                 + "    \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n"
                 + "\n"
@@ -69,7 +69,7 @@ public class Page {
         System.out.println("\n\nVeuillez rentrer le titre de votre eZoomBook\n");
         String titre = DemandeString();
 
-        this.texte = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n"
+        this.texte = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\" standalone=\"no\"?>\n"
                 + "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
                 + "  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n"
                 + "\n"
@@ -77,6 +77,7 @@ public class Page {
                 + "<head>\n"
                 + "  <title>ENTRER LE TITRE DU COURS</title>\n"
                 + "  <link href=\"../Styles/style.css\" rel=\"stylesheet\" type=\"text/css\" />\n"
+                + "  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />\n"
                 + "</head>\n"
                 + "\n"
                 + "<body>\n"
@@ -125,7 +126,7 @@ public class Page {
 
     void pageVierge(ArrayList<String> nomChapitres, ArrayList<String> nomLayers, int i, int j) {
 
-        this.texte = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n"
+        this.texte = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\" standalone=\"no\"?>\n"
                 + "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
                 + "  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n"
                 + "\n"
@@ -133,6 +134,7 @@ public class Page {
                 + "<head>\n"
                 + "  <meta content=\"NOARCHIVE\" name=\"ROBOTS\" />\n"
                 + "  <meta content=\"text/javascript\" http-equiv=\"content-script-type\" />\n"
+                + "  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />\n"
                 + "  <link href=\"../Styles/style.css\" media=\"all\" rel=\"stylesheet\" type=\"text/css\" />\n"
                 + "\n"
                 + "  <title></title>\n"
@@ -141,7 +143,7 @@ public class Page {
                 + "<body>\n"
                 + "  <p><a id=\"s1\"></a></p>\n"
                 + "\n"
-                +"<td id=\"td\"><a href=\"../eZoomBook/intro.xhtml#n1\">Retour Ã  l'introduction</a></td>"
+                +"<td id=\"td\"><a href=\"../eZoomBook/intro.xhtml#n1\">Retour à l'introduction</a></td>"
                 + "  <center>\n"
                 + "    <table id=\"table\">\n"
                 + "<tr id=\"tr\">" ;
@@ -191,10 +193,10 @@ public class Page {
                 + "  </center>\n";
                 
                 if (i>0){
-            this.texte += "<td id=\"td\"><a href=\"../eZoomBook/" + nomChapitres.get(i-1) + "_" + nomLayers.get(j) + ".xhtml#n1\">&lt;&lt;Chapitre prÃ©cÃ©dent</a></td>";
+            this.texte += "<td id=\"td\"><a href=\"../eZoomBook/" + nomChapitres.get(i-1) + "_" + nomLayers.get(j) + ".xhtml#n1\">&lt;&lt;Chapitre précédent</a></td>";
         }
                 this.texte += "\n"
-                + "  <h1 id=\"sigil_toc_id_3\">SynthÃ¨se</h1>\n"
+                + "  <h1 id=\"sigil_toc_id_3\">Synthèse</h1>\n"
                 + "\n"
                 + "  <h2 id=\"sigil_toc_id_4\">TITRE 1</h2>\n"
                 + "\n"
