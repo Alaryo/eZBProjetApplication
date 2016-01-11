@@ -8,7 +8,6 @@ package ezoombook;
 import java.io.IOException;
 import java.util.*;
 import java.util.logging.*;
-import java.io.*;
 
 /**
  *
@@ -58,15 +57,6 @@ public class Utilitaire {
             saisieOk = true;
         }
         return txt;
-    }
-    
-    public static String change(String aChanger){
-        aChanger.replaceAll(" ", "&nbsp");
-        aChanger.replaceAll("é", "&eacute");
-        aChanger.replaceAll("è", "&egrave");
-        aChanger.replaceAll("ê", "&ecirc");
-        aChanger.replaceAll("\'", "&#8217");
-        return aChanger;
     }
 
 }
