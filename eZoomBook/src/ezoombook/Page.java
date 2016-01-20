@@ -6,6 +6,7 @@
 package ezoombook;
 
 import static ezoombook.Utilitaire.DemandeString;
+import static ezoombook.Utilitaire.changeRef;
 import java.util.ArrayList;
 
 /**
@@ -112,7 +113,7 @@ public class Page {
                     + "        <td id=\"td\">" + nomChapitres.get(j) + "</td>\n";
             for (int i = 0; i < nomLayers.size(); i++) {
                 this.texte += "\n"
-                        + "        <td id=\"td\"><a href=\"../eZoomBook/" + nomChapitres.get(j) + "_" + nomLayers.get(i) + ".xhtml#n1\">Allez-y</a></td>\n";
+                        + "        <td id=\"td\"><a href=\"../Text/" + changeRef(nomChapitres.get(j)) + "_" + changeRef(nomLayers.get(i)) + ".xhtml#PageEntiere\">Allez-y</a></td>\n";
             }
             this.texte += "      </tr>\n";
         }
@@ -140,10 +141,11 @@ public class Page {
                 + "  <title></title>\n"
                 + "</head>\n"
                 + "\n"
-                + "<body>\n"
+                + "<body id=\"PageEntiere\">\n"
                 + "  <p><a id=\"s1\"></a></p>\n"
                 + "\n"
-                +"<td id=\"td\"><a href=\"../eZoomBook/intro.xhtml#n1\">Retour à l'introduction</a></td>"
+                +"<div class=\"header\">"
+                + "\n"
                 + "  <center>\n"
                 + "    <table id=\"table\">\n"
                 + "<tr id=\"tr\">" ;
@@ -182,7 +184,7 @@ public class Page {
                         + "</td>\n";
             } else {
                 this.texte += "\n"
-                        + "<td id=\"td\"><a href=\"../eZoomBook/" + nomChapitres.get(i) + "_" + nomLayers.get(l) + ".xhtml#n1\">"
+                        + "<td id=\"td\"><a href=\"../Text/" + changeRef(nomChapitres.get(i)) + "_" + changeRef(nomLayers.get(l)) + ".xhtml#PageEntiere\">"
                         + nomLayers.get(l)
                         + "</a></td>\n";
             }
@@ -190,21 +192,26 @@ public class Page {
         }
         this.texte += "      </tr>\n"
                 + "    </table>\n"
-                + "  </center>\n";
+                + "  </center>\n"
+                +"</div>\n"
+                +"<p id=\"td\"><a href=\"../Text/intro.xhtml#n1\">Retour à l'introduction</a></p>";
                 
+        
                 if (i>0){
-            this.texte += "<td id=\"td\"><a href=\"../eZoomBook/" + nomChapitres.get(i-1) + "_" + nomLayers.get(j) + ".xhtml#n1\">&lt;&lt;Chapitre précédent</a></td>";
+            this.texte += "<p id=\"td\"><a href=\"../Text/" + changeRef(nomChapitres.get(i-1)) + "_" + changeRef(nomLayers.get(j)) + ".xhtml#PageEntiere\">&lt;&lt;Chapitre précédent</a></p>";
         }
                 this.texte += "\n"
-                + "  <h1 id=\"sigil_toc_id_3\">Synthèse</h1>\n"
+                + "  <h1 id=\"sigil_toc_id_3\">"
+                +nomChapitres.get(i)
+                + "</h1>\n"
                 + "\n"
-                + "  <h2 id=\"sigil_toc_id_4\">TITRE 1</h2>\n"
+                + "  <h2 class=\"sigil_not_in_toc\">"
+                +nomLayers.get(j)
+                + "</h2>\n"
                 + "\n"
-                + "  <h3 class=\"sigil_not_in_toc\">SOUS TITRE</h3>\n"
-                + "\n"
-                + "  <p>ENTRER LE COURS&nbsp;</p>\n";
+                + "  <p>Entrer le cours</p>\n";
         if (i<nomChapitres.size()-1){
-            this.texte += "<td id=\"td\"><a href=\"../eZoomBook/" + nomChapitres.get(i+1) + "_" + nomLayers.get(j) + ".xhtml#n1\">&gt;&gt;Chapitre suivant</a></td>";
+            this.texte +="<p id=\"td\"><a href=\"../Text/" + changeRef(nomChapitres.get(i+1)) + "_" + changeRef(nomLayers.get(j)) + ".xhtml#PageEntiere\">&gt;&gt;Chapitre suivant</a></p>";
         }
         this.texte += "</body>\n"
                 + "</html>";

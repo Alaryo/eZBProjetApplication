@@ -61,13 +61,16 @@ public class Utilitaire {
 
     public static String changeRef(String a){
         //on ne peut avoir "?" ":"  
-       /* a.replaceAll("é", "%C3%A9");
-        a.replaceAll("è", "%C3%A8");
-        a.replaceAll("à", "%C3%A0");
-        a.replaceAll("ù", "%C3%B9");
-        a.replaceAll(" ", "%20");
-        a.replaceAll("ê", "%C3%AA");
-        a.replaceAll("ç", "%C3%A7");*/
+        a.replaceAll("é", "&eacute");
+        a.replaceAll("è", "&egrave");
+        a.replaceAll("à", "&agrave");
+        a.replaceAll("ù", "&ugrave");
+        a.replaceAll(" ", "&nbsp");
+        a.replaceAll("ê", "&ecirc");
+        a.replaceAll("ç", "&ccedil");
+        a.replaceAll("oe", "&oelig");
+        a.replaceAll("ï", "&iuml");
+        a.replaceAll("&", "&amp");
     return a;
 }
 }
