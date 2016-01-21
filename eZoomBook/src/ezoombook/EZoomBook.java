@@ -5,7 +5,7 @@
  */
 package ezoombook;
 
-import static ezoombook.Utilitaire.*;
+import static ezoombook.Page.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
