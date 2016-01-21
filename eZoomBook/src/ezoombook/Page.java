@@ -45,6 +45,10 @@ public class Page {
         this.texte = texte;
     }
 
+    public void pageCSS() {
+
+    }
+
     public Page() {
         this.titreChapitre = "Sans Titre";
         this.layer = "Sans Layer";
@@ -125,7 +129,7 @@ public class Page {
 
     }
 
-    void pageVierge(ArrayList<String> nomChapitres, ArrayList<String> nomLayers, int i, int j) {
+    public void pageVierge(ArrayList<String> nomChapitres, ArrayList<String> nomLayers, int i, int j) {
 
         this.texte = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\" standalone=\"no\"?>\n"
                 + "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
@@ -144,11 +148,15 @@ public class Page {
                 + "<body id=\"PageEntiere\">\n"
                 + "  <p><a id=\"s1\"></a></p>\n"
                 + "\n"
+<<<<<<< HEAD
                 +"<div class=\"header\">"
                 + "\n"
+=======
+                + "<td id=\"td\"><a href=\"../eZoomBook/intro.xhtml#n1\">Retour à l'introduction</a></td>"
+>>>>>>> origin/master
                 + "  <center>\n"
                 + "    <table id=\"table\">\n"
-                + "<tr id=\"tr\">" ;
+                + "<tr id=\"tr\">";
         if (j == 0) {
             this.texte += "        <td id=\"td\">Niveau </td>\n"
                     + "\n"
@@ -173,7 +181,7 @@ public class Page {
                     + "\">Aller au niveau</td>\n"
                     + "      </tr>\n";
         }
-        
+
         this.texte += "<tr id=\"tr\">";
 
         for (int l = 0; l < nomLayers.size(); l++) {
@@ -192,6 +200,7 @@ public class Page {
         }
         this.texte += "      </tr>\n"
                 + "    </table>\n"
+<<<<<<< HEAD
                 + "  </center>\n"
                 +"</div>\n"
                 +"<p id=\"td\"><a href=\"../Text/intro.xhtml#n1\">Retour à l'introduction</a></p>";
@@ -204,16 +213,59 @@ public class Page {
                 + "  <h1 id=\"sigil_toc_id_3\">"
                 +nomChapitres.get(i)
                 + "</h1>\n"
+=======
+                + "  </center>\n";
+
+        if (i > 0) {
+            this.texte += "<td id=\"td\"><a href=\"../eZoomBook/" + nomChapitres.get(i - 1) + "_" + nomLayers.get(j) + ".xhtml#n1\">&lt;&lt;Chapitre précédent</a></td>";
+        }
+        this.texte += "\n"
+                + "  <h1 id=\"sigil_toc_id_3\">Synthèse</h1>\n"
+                + "\n"
+                + "  <h2 id=\"sigil_toc_id_4\">TITRE 1</h2>\n"
+>>>>>>> origin/master
                 + "\n"
                 + "  <h2 class=\"sigil_not_in_toc\">"
                 +nomLayers.get(j)
                 + "</h2>\n"
                 + "\n"
+<<<<<<< HEAD
                 + "  <p>Entrer le cours</p>\n";
         if (i<nomChapitres.size()-1){
             this.texte +="<p id=\"td\"><a href=\"../Text/" + changeRef(nomChapitres.get(i+1)) + "_" + changeRef(nomLayers.get(j)) + ".xhtml#PageEntiere\">&gt;&gt;Chapitre suivant</a></p>";
+=======
+                + "  <p>ENTRER LE COURS&nbsp;</p>\n";
+        if (i < nomChapitres.size() - 1) {
+            this.texte += "<td id=\"td\"><a href=\"../eZoomBook/" + nomChapitres.get(i + 1) + "_" + nomLayers.get(j) + ".xhtml#n1\">&gt;&gt;Chapitre suivant</a></td>";
+>>>>>>> origin/master
         }
         this.texte += "</body>\n"
                 + "</html>";
+    }
+
+    public void ecrireStyle() {
+        this.texte = "a{\n"
+                + "	color:#444;\n"
+                + "}\n"
+                + "\n"
+                + "a:hover{\n"
+                + "	font-weight:bold;\n"
+                + "}\n"
+                + "\n"
+                + "body{\n"
+                + "	background-color:rgb(255,255,218);\n"
+                + "}\n"
+                + "\n"
+                + ".header {\n"
+                + "   position:fixed;\n"
+                + "   background:rgb(220,250,225);\n"
+                + "   height:50px;\n"
+                + "   top:0;\n"
+                + "   left:0;\n"
+                + "   right:0;\n"
+                + "}\n"
+                + ".content {\n"
+                + "   padding:50px 0 50px 0;\n"
+                + "}";
     }
 }
