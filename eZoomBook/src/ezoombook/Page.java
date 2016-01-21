@@ -90,20 +90,18 @@ public class Page {
                 + "\n"
                 + "  <h1>" + titre + "</h1>\n"
                 + "\n"
-                + "  <p style=\"text-align: center;\"><img alt=\"\" height=\"240\" src=\"../Images/head.png\" width=\"240\" /><br /></p>\n"
-                + "\n"
                 + "  <p style=\"text-align: center;\"><b>Responsable du cours</b></p>\n"
                 + "\n"
-                + "  <p>Entrer texte d'introduction</p><!--StartFragment--><!--EndFragment-->\n"
+                + "  <p>introduction</p><!--StartFragment--><!--EndFragment-->\n"
                 + "\n"
-                + "  <h3 id=\"sigil_toc_id_1\" style=\"text-align: center;\">Comment utiliser ce livre</h3>\n"
+                + "  <h3 id=\"sigil_toc_id_1\" style=\"text-align: center;\">How to use</h3>\n"
                 + "\n"
-                + "  <p>Entrer texte explicatif (comment utiliser l'eZoomBook)<br /></p><!--StartFragment--><!--EndFragment-->\n"
+                + "  <p>(How to use this eZoomBook)<br /></p><!--StartFragment--><!--EndFragment-->\n"
                 + "\n"
                 + "  <center>\n"
                 + "    <table id=\"table\">\n"
                 + "      <tr id=\"tr\">\n"
-                + "        <td id=\"td\">Niveau</td>\n"
+                + "        <td id=\"td\">Layer</td>\n"
                 + "\n";
         for (int k = 0; k < nomLayers.size(); k++) {
             this.texte += "        <td id=\"td\">" + nomLayers.get(k) + "</td>\n"
@@ -117,7 +115,7 @@ public class Page {
                     + "        <td id=\"td\">" + nomChapitres.get(j) + "</td>\n";
             for (int i = 0; i < nomLayers.size(); i++) {
                 this.texte += "\n"
-                        + "        <td id=\"td\"><a href=\"../Text/" + changeRef(nomChapitres.get(j)) + "_" + changeRef(nomLayers.get(i)) + ".xhtml#PageEntiere\">Allez-y</a></td>\n";
+                        + "        <td id=\"td\"><a href=\"../Text/" + changeRef(nomChapitres.get(j)) + "_" + changeRef(nomLayers.get(i)) + ".xhtml#PageEntiere\">Go to</a></td>\n";
             }
             this.texte += "      </tr>\n";
         }
@@ -148,37 +146,34 @@ public class Page {
                 + "<body id=\"PageEntiere\">\n"
                 + "  <p><a id=\"s1\"></a></p>\n"
                 + "\n"
-<<<<<<< HEAD
                 +"<div class=\"header\">"
                 + "\n"
-=======
-                + "<td id=\"td\"><a href=\"../eZoomBook/intro.xhtml#n1\">Retour à l'introduction</a></td>"
->>>>>>> origin/master
+                + "<td id=\"td\"><a href=\"../Text/intro.xhtml#n1\">Back to introduction</a></td>"
                 + "  <center>\n"
                 + "    <table id=\"table\">\n"
                 + "<tr id=\"tr\">";
         if (j == 0) {
-            this.texte += "        <td id=\"td\">Niveau </td>\n"
+            this.texte += "        <td id=\"td\">eZoomLayer </td>\n"
                     + "\n"
                     + "        <td colspan=\""
                     + (nomLayers.size() - 1)
-                    + "\">Aller au niveau   </td>\n"
+                    + "\">Go to Layer   </td>\n"
                     + "      </tr>\n";
         } else if (j == nomLayers.size() - 1) {
             this.texte += "        <td colspan=\""
                     + (nomLayers.size() - 1)
-                    + "\">Aller au niveau</td>\n"
-                    + "        <td id=\"td\">Niveau </td>\n"
+                    + "\">Go to Layer</td>\n"
+                    + "        <td id=\"td\">eZoomLayer </td>\n"
                     + "      </tr>\n";
         } else {
             this.texte += "        <td colspan=\""
                     + (j)
-                    + "\">Aller au niveau</td>\n"
-                    + "        <td id=\"td\">Niveau </td>\n"
+                    + "\">Go to Layer</td>\n"
+                    + "        <td id=\"td\">eZoomLayer </td>\n"
                     + "\n"
                     + "        <td colspan=\""
                     + (nomLayers.size() - j - 1)
-                    + "\">Aller au niveau</td>\n"
+                    + "\">Go to Layer</td>\n"
                     + "      </tr>\n";
         }
 
@@ -200,44 +195,26 @@ public class Page {
         }
         this.texte += "      </tr>\n"
                 + "    </table>\n"
-<<<<<<< HEAD
                 + "  </center>\n"
                 +"</div>\n"
-                +"<p id=\"td\"><a href=\"../Text/intro.xhtml#n1\">Retour à l'introduction</a></p>";
+                +"<p id=\"td\"><a href=\"../Text/intro.xhtml#n1\">Back to introduction</a></p>";
                 
         
                 if (i>0){
-            this.texte += "<p id=\"td\"><a href=\"../Text/" + changeRef(nomChapitres.get(i-1)) + "_" + changeRef(nomLayers.get(j)) + ".xhtml#PageEntiere\">&lt;&lt;Chapitre précédent</a></p>";
+            this.texte += "<p id=\"td\"><a href=\"../Text/" + changeRef(nomChapitres.get(i-1)) + "_" + changeRef(nomLayers.get(j)) + ".xhtml#PageEntiere\">&lt;&lt;Previous Chapter</a></p>";
         }
                 this.texte += "\n"
                 + "  <h1 id=\"sigil_toc_id_3\">"
                 +nomChapitres.get(i)
                 + "</h1>\n"
-=======
-                + "  </center>\n";
-
-        if (i > 0) {
-            this.texte += "<td id=\"td\"><a href=\"../eZoomBook/" + nomChapitres.get(i - 1) + "_" + nomLayers.get(j) + ".xhtml#n1\">&lt;&lt;Chapitre précédent</a></td>";
-        }
-        this.texte += "\n"
-                + "  <h1 id=\"sigil_toc_id_3\">Synthèse</h1>\n"
-                + "\n"
-                + "  <h2 id=\"sigil_toc_id_4\">TITRE 1</h2>\n"
->>>>>>> origin/master
                 + "\n"
                 + "  <h2 class=\"sigil_not_in_toc\">"
                 +nomLayers.get(j)
                 + "</h2>\n"
                 + "\n"
-<<<<<<< HEAD
                 + "  <p>Entrer le cours</p>\n";
         if (i<nomChapitres.size()-1){
-            this.texte +="<p id=\"td\"><a href=\"../Text/" + changeRef(nomChapitres.get(i+1)) + "_" + changeRef(nomLayers.get(j)) + ".xhtml#PageEntiere\">&gt;&gt;Chapitre suivant</a></p>";
-=======
-                + "  <p>ENTRER LE COURS&nbsp;</p>\n";
-        if (i < nomChapitres.size() - 1) {
-            this.texte += "<td id=\"td\"><a href=\"../eZoomBook/" + nomChapitres.get(i + 1) + "_" + nomLayers.get(j) + ".xhtml#n1\">&gt;&gt;Chapitre suivant</a></td>";
->>>>>>> origin/master
+            this.texte +="<p id=\"td\"><a href=\"../Text/" + changeRef(nomChapitres.get(i+1)) + "_" + changeRef(nomLayers.get(j)) + ".xhtml#PageEntiere\">&gt;&gt;Next Chapter</a></p>";
         }
         this.texte += "</body>\n"
                 + "</html>";
